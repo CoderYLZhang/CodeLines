@@ -89,7 +89,7 @@ struct CodeLines {
             }
             
             
-            if string.characters.count == 0 {
+            if subString.characters.count == 0 {
                 blank += 1
                 continue
             }
