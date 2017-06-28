@@ -7,11 +7,14 @@
 //
 
 import Foundation
-// /Users/yinlong/Desktop/MYGit/codeLines/codeLines/String+Path.swift
-// /Users/yinlong/Desktop/ziti/ziti/AppDelegate.h
-let filePath = "/Users/yinlong/Desktop/ziti/ziti/AppDelegate.h"
 
+let filePath = "要检查的目录"
+
+//CodeLines.ignoreFolders = ["Pods"] // 要忽略的文件夹名
 let sumLines = CodeLines.process(filePath)
 
 print("总行数: \(sumLines.total), 有效代码行数: \(sumLines.code), 注释: \(sumLines.note), 空行: \(sumLines.blank)")
-// 总行数: 22, 有效代码行数: 12, 注释: 7, 空行: 3
+
+
+// 总行数: 188178, 有效代码行数: 134694, 注释: 29816, 空行: 23668 不包括 Pods
+// 总行数: 245862, 有效代码行数: 165923, 注释: 47752, 空行: 32187 包括 Pods

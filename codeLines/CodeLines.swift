@@ -11,6 +11,8 @@ import Foundation
 typealias LinesTuple = (total: Int, code: Int, note: Int, blank: Int)
 
 struct CodeLines {
+    static  var ignoreFolders = [String]()
+    
     static func process(_ path : String) -> LinesTuple {
         
         let fileManager = FileManager.default
@@ -20,6 +22,9 @@ struct CodeLines {
         
         if isDirectory.boolValue { // 是目录
             
+            if ignoreFolders.contains(path.lastPathComponent) {
+                return (0, 0, 0, 0)
+            }
             let fileArr = try! fileManager.contentsOfDirectory(atPath: path)
             var sumlines : LinesTuple = (0, 0, 0, 0)
             for file in fileArr {
