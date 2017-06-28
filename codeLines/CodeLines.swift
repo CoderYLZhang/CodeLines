@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias LinesTuple = (total: Int, code: Int, note: Int, blank: Int)
+typealias LinesTuple = (total: Int, code: Int, note: Int, blank: Int, fileH: Int, fileM: Int, fileSwift: Int)
 
 struct CodeLines {
     static  var ignoreFolders = [String]()
@@ -23,13 +23,13 @@ struct CodeLines {
         if isDirectory.boolValue { // 是目录
             
             if ignoreFolders.contains(path.lastPathComponent) {
-                return (0, 0, 0, 0)
+                return (0, 0, 0, 0, 0, 0, 0)
             }
             let fileArr = try! fileManager.contentsOfDirectory(atPath: path)
-            var sumlines : LinesTuple = (0, 0, 0, 0)
+            var sumlines : LinesTuple = (0, 0, 0, 0, 0, 0, 0)
             for file in fileArr {
                 let temp = CodeLines.process("\(path)/\(file)")
-                sumlines = (sumlines.0 + temp.0, sumlines.1 + temp.1, sumlines.2 + temp.2, sumlines.3 + temp.3)
+                sumlines = (sumlines.0 + temp.0, sumlines.1 + temp.1, sumlines.2 + temp.2, sumlines.3 + temp.3, sumlines.4 + temp.4, sumlines.5 + temp.5, sumlines.6 + temp.6)
             }
             return sumlines
         }
@@ -37,7 +37,20 @@ struct CodeLines {
         let fileExtension = path.pathExtension
         let fileExtensions = ["h","m","swift"]
         guard fileExtensions.contains(fileExtension) else {
-            return (0, 0, 0, 0)
+            return (0, 0, 0, 0, 0, 0, 0)
+        }
+        var fileH = 0
+        var fileM = 0
+        var fileSwift = 0
+        
+        if fileExtension == "h" {
+            fileH += 1
+        }
+        else if fileExtension == "m" {
+            fileM += 1
+        }
+        else if fileExtension == "swift" {
+            fileSwift += 1
         }
         
         let text : NSString = try! NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
@@ -51,14 +64,16 @@ struct CodeLines {
         
         for string in arr {
             total += 1
+
+            let subString = string.trimmingCharacters(in: .whitespaces)
             
-            if string.hasSuffix("*/") {
+            if subString.hasSuffix("*/") {
                 note += 1
                 isStar = false
                 continue
             }
             
-            if string.contains("/*") {
+            if subString.contains("/*") {
                 note += 1
                 isStar = true
                 continue
@@ -68,15 +83,11 @@ struct CodeLines {
                 continue
             }
             
-            if string.hasPrefix("//") {
+            if subString.hasPrefix("//") {
                 note += 1
                 continue
             }
             
-            if string.hasPrefix(" ") && string.contains("//") {
-                note += 1
-                continue
-            }
             
             if string.characters.count == 0 {
                 blank += 1
@@ -86,6 +97,6 @@ struct CodeLines {
         }
         
         print("文件: \(path.lastPathComponent), 总行数: \(total), 有效代码行数: \(code), 注释: \(note), 空行: \(blank)")
-        return (total, code, note, blank)
+        return (total, code, note, blank, fileH, fileM, fileSwift)
     }
 }
