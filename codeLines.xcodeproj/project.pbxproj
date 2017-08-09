@@ -10,6 +10,7 @@
 		D37C6E7A1F0262D100E9A507 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6E791F0262D100E9A507 /* main.swift */; };
 		D37C6E811F0269F800E9A507 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6E801F0269F800E9A507 /* String+Path.swift */; };
 		D38C42751F0345EC00EEA455 /* CodeLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C42741F0345EC00EEA455 /* CodeLines.swift */; };
+		D3A1C35E1F3AA1B100EE5DCC /* CopyFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1C35D1F3AA1B100EE5DCC /* CopyFiles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		D37C6E791F0262D100E9A507 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D37C6E801F0269F800E9A507 /* String+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Path.swift"; sourceTree = "<group>"; };
 		D38C42741F0345EC00EEA455 /* CodeLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeLines.swift; sourceTree = "<group>"; };
+		D3A1C35D1F3AA1B100EE5DCC /* CopyFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyFiles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				D37C6E791F0262D100E9A507 /* main.swift */,
 				D38C42741F0345EC00EEA455 /* CodeLines.swift */,
+				D3A1C35D1F3AA1B100EE5DCC /* CopyFiles.swift */,
 				D37C6E801F0269F800E9A507 /* String+Path.swift */,
 			);
 			path = codeLines;
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37C6E7A1F0262D100E9A507 /* main.swift in Sources */,
+				D3A1C35E1F3AA1B100EE5DCC /* CopyFiles.swift in Sources */,
 				D38C42751F0345EC00EEA455 /* CodeLines.swift in Sources */,
 				D37C6E811F0269F800E9A507 /* String+Path.swift in Sources */,
 			);
