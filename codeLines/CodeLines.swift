@@ -10,10 +10,14 @@ import Foundation
 
 typealias LinesTuple = (total: Int, code: Int, note: Int, blank: Int, fileH: Int, fileM: Int, fileSwift: Int)
 
-struct CodeLines {
-    static  var ignoreFolders = [String]()
+class CodeLines {
+    var ignoreFolders = [String]()
     
-    static func process(_ path : String) -> LinesTuple {
+    var limit: Int = 500
+    
+    var overflowFile: [(String, LinesTuple)] = []
+    
+    func process(_ path : String) -> LinesTuple {
         
         let fileManager = FileManager.default
         var isDirectory : ObjCBool = false
@@ -28,7 +32,7 @@ struct CodeLines {
             let fileArr = try! fileManager.contentsOfDirectory(atPath: path)
             var sumlines : LinesTuple = (0, 0, 0, 0, 0, 0, 0)
             for file in fileArr {
-                let temp = CodeLines.process("\(path)/\(file)")
+                let temp = process("\(path)/\(file)")
                 sumlines = (sumlines.0 + temp.0, sumlines.1 + temp.1, sumlines.2 + temp.2, sumlines.3 + temp.3, sumlines.4 + temp.4, sumlines.5 + temp.5, sumlines.6 + temp.6)
             }
             return sumlines
@@ -89,7 +93,7 @@ struct CodeLines {
             }
             
             
-            if subString.characters.count == 0 {
+            if subString.count == 0 {
                 blank += 1
                 continue
             }
@@ -97,6 +101,11 @@ struct CodeLines {
         }
         
         print("文件: \(path.lastPathComponent), 总行数: \(total), 有效代码行数: \(code), 注释: \(note), 空行: \(blank)")
-        return (total, code, note, blank, fileH, fileM, fileSwift)
+        let tuple = (total, code, note, blank, fileH, fileM, fileSwift)
+        if total > limit {
+            overflowFile.append((path.lastPathComponent, tuple))
+        }
+        
+        return tuple
     }
 }
