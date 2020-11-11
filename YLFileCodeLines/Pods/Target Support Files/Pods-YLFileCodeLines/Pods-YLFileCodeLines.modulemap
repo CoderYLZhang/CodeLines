@@ -1,0 +1,6 @@
+framework module Pods_YLFileCodeLines {
+  umbrella header "Pods-YLFileCodeLines-umbrella.h"
+
+  export *
+  module * { export * }
+}
