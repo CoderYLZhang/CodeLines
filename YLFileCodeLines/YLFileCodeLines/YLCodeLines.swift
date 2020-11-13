@@ -8,11 +8,16 @@
 
 import Foundation
 
+// 单独
+struct YFSingleFileLines {
+    
+}
+
 typealias LinesTuple = (total: Int, code: Int, note: Int, blank: Int, fileH: Int, fileM: Int, fileSwift: Int)
 
-class CodeLines {
-    var ignoreFolders = [String]()
-    
+class YLCodeLines {
+    var ignoreFolders: [String] = []
+
     var limit: Int = 500
     
     var overflowFile: [(String, LinesTuple)] = []
@@ -25,7 +30,7 @@ class CodeLines {
         fileManager.fileExists(atPath: path, isDirectory: &isDirectory)
         
         if isDirectory.boolValue { // 是目录
-            
+            CGSize.zero
             if ignoreFolders.contains(path.lastPathComponent) {
                 return (0, 0, 0, 0, 0, 0, 0)
             }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		D309A2AC255B843700CC21FA /* YLCodeLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D309A2AB255B843700CC21FA /* YLCodeLines.swift */; };
 		D309A2C6255B885B00CC21FA /* YLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D309A2C4255B885B00CC21FA /* YLMainViewController.swift */; };
 		D309A2C7255B885B00CC21FA /* YLWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D309A2C5255B885B00CC21FA /* YLWindowController.swift */; };
+		D309A35F255BE3BF00CC21FA /* YLDragDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D309A35E255BE3BF00CC21FA /* YLDragDropView.swift */; };
+		D309A365255BF0B900CC21FA /* YLMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D309A364255BF0B900CC21FA /* YLMainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D309A2AB255B843700CC21FA /* YLCodeLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLCodeLines.swift; sourceTree = "<group>"; };
 		D309A2C4255B885B00CC21FA /* YLMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMainViewController.swift; sourceTree = "<group>"; };
 		D309A2C5255B885B00CC21FA /* YLWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLWindowController.swift; sourceTree = "<group>"; };
+		D309A35E255BE3BF00CC21FA /* YLDragDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLDragDropView.swift; sourceTree = "<group>"; };
+		D309A364255BF0B900CC21FA /* YLMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLMainModel.swift; sourceTree = "<group>"; };
 		E96482C4CF2459D1ADD482B4 /* Pods-YLFileCodeLines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLFileCodeLines.release.xcconfig"; path = "Target Support Files/Pods-YLFileCodeLines/Pods-YLFileCodeLines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +92,6 @@
 				2B63045BC36243FDE98DF64E /* Pods-YLFileCodeLines.debug.xcconfig */,
 				E96482C4CF2459D1ADD482B4 /* Pods-YLFileCodeLines.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,6 +128,8 @@
 		D309A267255B832300CC21FA /* YLFileCodeLines */ = {
 			isa = PBXGroup;
 			children = (
+				D309A363255BF07500CC21FA /* Model */,
+				D309A35D255BE39700CC21FA /* View */,
 				D309A2C3255B885B00CC21FA /* ViewController */,
 				D309A268255B832300CC21FA /* AppDelegate.swift */,
 				D309A2AB255B843700CC21FA /* YLCodeLines.swift */,
@@ -161,6 +166,22 @@
 				D309A2C4255B885B00CC21FA /* YLMainViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D309A35D255BE39700CC21FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D309A35E255BE3BF00CC21FA /* YLDragDropView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D309A363255BF07500CC21FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D309A364255BF0B900CC21FA /* YLMainModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +248,7 @@
 		D309A25D255B832300CC21FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YF;
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
@@ -337,7 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D309A2C7255B885B00CC21FA /* YLWindowController.swift in Sources */,
+				D309A35F255BE3BF00CC21FA /* YLDragDropView.swift in Sources */,
 				D309A2C6255B885B00CC21FA /* YLMainViewController.swift in Sources */,
+				D309A365255BF0B900CC21FA /* YLMainModel.swift in Sources */,
 				D309A2AC255B843700CC21FA /* YLCodeLines.swift in Sources */,
 				D309A269255B832300CC21FA /* AppDelegate.swift in Sources */,
 			);
