@@ -57,7 +57,10 @@ class CodeLines {
             fileSwift += 1
         }
         
-        let text : NSString = try! NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
+        let text : NSString? = try? NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
+        
+        guard let text = text else { return (0, 0, 0, 0, 0, 0, 0) }
+        
         let arr = text.components(separatedBy: "\n")
         var total = 0 // 总行数
         var code = 0  // 有效代码行数
